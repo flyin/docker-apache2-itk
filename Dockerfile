@@ -31,9 +31,9 @@ RUN apt-get update \
 
 COPY etc /
 
-COPY entrypoint.sh /usr/local/bin/
+COPY entrypoint.sh /
 VOLUME "/srv/apache2"
 
 EXPOSE 80
 
-CMD ["entrypoint.sh"]
+CMD ["/entrypoint.sh"]
