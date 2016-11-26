@@ -29,9 +29,11 @@ RUN apt-get update \
  && ln -sf /dev/stderr /var/log/apache2/error.log \
  && rm -f /etc/apache2/conf-enabled/other-vhosts-access-log.conf
 
-COPY etc /
-
+COPY rpaf.conf /etc/apache2/mods-enabled/
+COPY apache2.conf /etc/apache2/
+COPY php.ini /etc/php5/apache2/
 COPY entrypoint.sh /
+
 VOLUME "/srv/apache2"
 
 EXPOSE 80
